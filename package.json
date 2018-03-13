@@ -27,6 +27,9 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.5.1",
     "prettier": "^1.11.1",
+    "stylelint": "^9.1.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^0.8.1",
     "webpack-dev-server": "^2.11.1"
   },
   "dependencies": {
@@ -44,5 +47,20 @@
   },
   "eslintIgnore": [
     "public/bundle.js"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Neil188/expensify.git"
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "plugins": [
+      "stylelint-order"
+    ],
+    "rules": {
+      "order/properties-alphabetical-order": true,
+      "indentation": 4,
+      "no-missing-end-of-source-newline": null
+    }
+  }
 }
