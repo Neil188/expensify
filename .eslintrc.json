@@ -34,6 +34,7 @@
                 "functions": "ignore"
             }
         ],
+        "no-trailing-spaces": 1,
         "no-unused-vars": [
             1,
             {
@@ -45,6 +46,15 @@
         "react/jsx-filename-extension": 0,
         "react/jsx-indent": [1, 4],
         "react/jsx-indent-props": [1, 4],
+        "react/no-did-mount-set-state": 0,
+        "react/jsx-tag-spacing": [
+            2,
+            {
+                "closingSlash": "never",
+                "beforeSelfClosing": "always",
+                "afterOpening": "never"
+            }
+        ],
         "jsx-a11y/anchor-is-valid": [
             "error",
             {
@@ -52,7 +62,11 @@
                 "specialLink": ["to"]
             }
         ],
-        "react/no-did-mount-set-state": 0
+        "jsx-a11y/label-has-for": [2, {
+            "required": {
+                "every": ["id"]
+            }
+        }]
     },
     "plugins": [
         "html",
