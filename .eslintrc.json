@@ -34,6 +34,7 @@
                 "functions": "ignore"
             }
         ],
+        "no-nested-ternary": 0,
         "no-trailing-spaces": 1,
         "no-unused-vars": [
             1,
