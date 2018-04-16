@@ -7,9 +7,9 @@ const ExpenseList = ({ expenses }) => (
     <div>
         <h1>Expense List</h1>
         {
-            expenses.map( ({ id, ...expense }) => (
+            expenses.map( expense => (
                 <ExpenseListItem
-                    key={id}
+                    key={expense.id}
                     {...expense}
                 />
             ))
