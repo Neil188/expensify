@@ -44,6 +44,13 @@
             }
 
         ],
+        "no-unused-expressions": [
+            1,
+            {
+                "allowShortCircuit": true,
+                "allowTernary": true
+            }
+        ],
         "react/jsx-filename-extension": 0,
         "react/jsx-indent": [1, 4],
         "react/jsx-indent-props": [1, 4],
