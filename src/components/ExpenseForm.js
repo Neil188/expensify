@@ -4,6 +4,9 @@ import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 
+// Set to en-gb to get UK formatted dates in SingleDatePicker
+moment.locale('en-gb');
+
 export default class ExpenseForm extends Component {
     state = {
         description: '',
@@ -11,20 +14,21 @@ export default class ExpenseForm extends Component {
         amount: '',
         createdAt: moment(),
         calendarFocused: false,
+        error: '',
     }
     handleAmountChange = ({target}) => {
         const amount = target.value;
-        const valid = amount.match(/^\d*(\.\d{0,2})?$/);
+        const valid = !amount || amount.match(/^\d{1,}(\.\d{0,2})?$/);
         if (valid) {
             this.setState( () => ({ amount }));
         }
     }
-    handleDateChange = (createdAt) => {
-        this.setState( () => ({ createdAt }));
-    }
-    handleDateFocusChange = ({ focused }) => {
+    handleDateChange = (createdAt) =>
+        !!createdAt && this.setState( () => ({ createdAt }));
+
+    handleDateFocusChange = ({ focused }) =>
         this.setState( () => ({ calendarFocused: focused }));
-    }
+
     handleDescriptionChange = ({target}) => {
         const description = target.value;
         this.setState( () => ({description}) );
@@ -33,26 +37,51 @@ export default class ExpenseForm extends Component {
         const note = target.value;
         this.setState( () => ({note}) );
     }
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const { description, amount, createdAt, note } = this.state;
+        const error =
+            (!description || !amount) ?
+                'Please provide description and amount' :
+                '';
+        this.setState( () => ({error}) );
+
+        !error && this.props.onSubmit({
+            description,
+            amount: parseFloat(amount,10) * 100,
+            createdAt: createdAt.valueOf(),
+            note,
+        });
+    }
     render() {
+        const {
+            description,
+            amount,
+            createdAt,
+            note,
+            error,
+            calendarFocused,
+        } = this.state;
         return (
             <div>
-                <form>
+                {error && <p>{error}</p>}
+                <form onSubmit={this.handleSubmit} >
                     <input
                         onChange={this.handleDescriptionChange}
                         placeholder='Description'
                         type='text'
-                        value={this.state.description}
+                        value={description}
                     />
                     <input
                         onChange={this.handleAmountChange}
                         placeholder='Amount'
                         type='text'
-                        value={this.state.amount}
+                        value={amount}
                     />
                     <SingleDatePicker
-                        date={this.state.createdAt}
+                        date={createdAt}
                         onDateChange={this.handleDateChange}
-                        focused={this.state.calendarFocused}
+                        focused={calendarFocused}
                         onFocusChange={this.handleDateFocusChange}
                         numberOfMonths={1}
                         isOutsideRange={ () => false}
@@ -60,7 +89,7 @@ export default class ExpenseForm extends Component {
                     <textarea
                         onChange={this.handleNoteChange}
                         placeholder='Add a note for your expense (optional)'
-                        value={this.state.note}
+                        value={note}
                     />
                     <button>Add Expense</button>
                 </form>
