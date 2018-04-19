@@ -8,14 +8,19 @@ import 'react-dates/lib/css/_datepicker.css';
 moment.locale('en-gb');
 
 export default class ExpenseForm extends Component {
-    state = {
-        description: '',
-        note: '',
-        amount: '',
-        createdAt: moment(),
-        calendarFocused: false,
-        error: '',
+    constructor(props) {
+        super(props);
+        const { expense } = props;
+        this.state = {
+            description: expense ? expense.description : '',
+            note: expense ? expense.note : '',
+            amount: expense ? (expense.amount / 100).toString() :'',
+            createdAt: expense ? moment(expense.createdAt) : moment(),
+            calendarFocused: false,
+            error: '',
+        }
     }
+
     handleAmountChange = ({target}) => {
         const amount = target.value;
         const valid = !amount || amount.match(/^\d{1,}(\.\d{0,2})?$/);
@@ -62,6 +67,7 @@ export default class ExpenseForm extends Component {
             error,
             calendarFocused,
         } = this.state;
+        const { expense } = this.props;
         return (
             <div>
                 {error && <p>{error}</p>}
@@ -91,7 +97,7 @@ export default class ExpenseForm extends Component {
                         placeholder='Add a note for your expense (optional)'
                         value={note}
                     />
-                    <button>Add Expense</button>
+                    <button>{`${expense ? 'Edit' : 'Add'} Expense`}</button>
                 </form>
             </div>
         )
