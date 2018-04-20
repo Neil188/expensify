@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate }
@@ -58,6 +59,16 @@ class ExpenseListFilters extends Component {
         );
     }
 };
+
+ExpenseListFilters.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    filters: PropTypes.shape({
+        startDate: PropTypes.shape(),
+        endDate: PropTypes.shape(),
+        text: PropTypes.string,
+        sortBy: PropTypes.string,
+    }).isRequired,
+}
 
 const mapStateToProps = (state) => ({
     filters: state.filters,

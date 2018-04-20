@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { SingleDatePicker } from 'react-dates';
@@ -102,4 +103,18 @@ export default class ExpenseForm extends Component {
             </div>
         )
     }
+};
+ExpenseForm.defaultProps = {
+    expense: null,
 }
+
+ExpenseForm.propTypes = {
+    expense: PropTypes.shape({
+        id: PropTypes.string,
+        description: PropTypes.string,
+        note: PropTypes.string,
+        amount: PropTypes.number,
+        createdAt: PropTypes.number,
+    }),
+    onSubmit: PropTypes.func.isRequired,
+};
