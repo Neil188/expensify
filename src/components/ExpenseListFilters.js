@@ -29,12 +29,12 @@ class ExpenseListFilters extends Component {
                 <input
                     type="text"
                     value={filters.text}
-                    onChange={({target}) =>
+                    onChange={({ target }) =>
                         dispatch(setTextFilter(target.value))}
                 />
                 <select
                     value={filters.sortBy}
-                    onChange={({target}) => target.value === 'amount' ?
+                    onChange={({ target }) => target.value === 'amount' ?
                         dispatch(sortByAmount()) :
                         dispatch(sortByDate())
                     }

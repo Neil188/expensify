@@ -21,7 +21,7 @@ export default class ExpenseForm extends Component {
         }
     }
 
-    handleAmountChange = ({target}) => {
+    handleAmountChange = ({ target }) => {
         const amount = target.value;
         const valid = !amount || amount.match(/^\d{1,}(\.\d{0,2})?$/);
         if (valid) {
@@ -34,13 +34,13 @@ export default class ExpenseForm extends Component {
     handleDateFocusChange = ({ focused }) =>
         this.setState( () => ({ calendarFocused: focused }));
 
-    handleDescriptionChange = ({target}) => {
+    handleDescriptionChange = ({ target }) => {
         const description = target.value;
-        this.setState( () => ({description}) );
+        this.setState( () => ({ description }) );
     }
-    handleNoteChange = ({target}) => {
+    handleNoteChange = ({ target }) => {
         const note = target.value;
-        this.setState( () => ({note}) );
+        this.setState( () => ({ note }) );
     }
     handleSubmit = (e) => {
         e.preventDefault();
@@ -49,7 +49,7 @@ export default class ExpenseForm extends Component {
             (!description || !amount) ?
                 'Please provide description and amount' :
                 '';
-        this.setState( () => ({error}) );
+        this.setState( () => ({ error }) );
 
         !error && this.props.onSubmit({
             description,

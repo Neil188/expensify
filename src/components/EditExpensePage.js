@@ -14,7 +14,7 @@ const EditExpensePage = ({ expense, dispatch, history }) => (
         />
         <button
             onClick={ () => {
-                dispatch(removeExpense( {id : expense.id} ));
+                dispatch(removeExpense( { id : expense.id } ));
                 history.push('/');
             }}
         >Remove</button>
