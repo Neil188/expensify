@@ -5,40 +5,41 @@ import { DateRangePicker } from 'react-dates';
 import { setTextFilter, sortByAmount, sortByDate, setStartDate, setEndDate }
     from '../actions/filters';
 
-class ExpenseListFilters extends Component {
+export class ExpenseListFilters extends Component {
     state = {
         calendarFocused: null,
     };
 
     handleDatesChange = ({ startDate, endDate }) => {
-        this.props.dispatch(setStartDate(startDate));
-        this.props.dispatch(setEndDate(endDate));
+        this.props.setStartDate(startDate);
+        this.props.setEndDate(endDate);
     };
 
     handleFocusChange = (calendarFocused) => {
         this.setState( () => ({ calendarFocused }))
     };
 
+    handleTextChange = ({ target }) =>
+        this.props.setTextFilter(target.value);
+
+    handleSortChange = ({ target }) =>
+        target.value === 'amount' ?
+            this.props.sortByAmount() :
+            this.props.sortByDate();
+
     render() {
-        const {
-            filters,
-            dispatch,
-        } = this.props;
+        const { filters } = this.props;
 
         return (
             <div>
                 <input
                     type="text"
                     value={filters.text}
-                    onChange={({ target }) =>
-                        dispatch(setTextFilter(target.value))}
+                    onChange={this.handleTextChange}
                 />
                 <select
                     value={filters.sortBy}
-                    onChange={({ target }) => target.value === 'amount' ?
-                        dispatch(sortByAmount()) :
-                        dispatch(sortByDate())
-                    }
+                    onChange={this.handleSortChange}
                 >
                     <option value='date'>Date</option>
                     <option value='amount'>Amount</option>
@@ -61,7 +62,11 @@ class ExpenseListFilters extends Component {
 };
 
 ExpenseListFilters.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    setTextFilter: PropTypes.func.isRequired,
+    sortByAmount: PropTypes.func.isRequired,
+    sortByDate: PropTypes.func.isRequired,
+    setStartDate: PropTypes.func.isRequired,
+    setEndDate: PropTypes.func.isRequired,
     filters: PropTypes.shape({
         startDate: PropTypes.shape(),
         endDate: PropTypes.shape(),
@@ -74,4 +79,12 @@ const mapStateToProps = (state) => ({
     filters: state.filters,
 });
 
-export default connect(mapStateToProps)(ExpenseListFilters);
+const mapDispatchToProps = (dispatch) => ({
+    setTextFilter: (text) => dispatch(setTextFilter(text.value)),
+    sortByAmount: () => this.props.dispatch(sortByAmount()),
+    sortByDate: () => this.props.dispatch(sortByDate()),
+    setStartDate: (date) => this.props.dispatch(setStartDate(date)),
+    setEndDate: (date) => this.props.dispatch(setEndDate(date)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);
