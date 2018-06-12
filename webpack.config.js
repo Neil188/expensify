@@ -1,4 +1,5 @@
 const path = require('path');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = (env) => {
     const isProduction = env === 'production';
@@ -26,6 +27,11 @@ module.exports = (env) => {
                 },
             ],
         },
+        plugins: [
+            new MomentLocalesPlugin({
+                localesToKeep: ['en-gb'],
+            }),
+        ],
         devtool: isProduction ? 'source-map' : 'cheap-module-eval-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
