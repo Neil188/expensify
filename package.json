@@ -9,6 +9,7 @@
     "dev-server": "webpack-dev-server",
     "preserve": "npm run build:prod",
     "serve": "live-server public/",
+    "start": "node .\\server\\server.js",
     "test": "jest --config=jest.config.json --watch"
   },
   "author": "N Lupton",
