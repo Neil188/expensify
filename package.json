@@ -74,7 +74,7 @@
     "npm": "6.1.x"
   },
   "eslintIgnore": [
-    "public/bundle.js"
+    "public/dist/*"
   ],
   "repository": {
     "type": "git",
