@@ -1,3 +1,10 @@
 language: node_js
 node_js:
-  - "8.11"
+- '8.11'
+deploy:
+  provider: heroku
+  api_key:
+    secure: L3fIGbqMeSSxAUiGsMHpWah8c8XTlyeNam/6W8TXcHIGJNsSxszWsJvVzcvlN6piom0/J7HVA3Q9rzInP18bD2ZkfY1/0y/shLPIGTmSki2rTRCvEtgDpxlkv/+paLM+weMzYENZtFtTTb+zNhKSBTG/afT7YO6I91aGmncvCniUNOnTWSaJcCdhr24RxGc43YQCW5DP2jNYqT9VdXnLeZsR3y4dsqvpd3r/ECgXaBLh36lqP+SETMkC1/cuGQmoV/PQxbA51VFh9aVzuWD5ksBVFT4YMnZPHaVCR49DbaC/HQKRTf42jt6261zqG2XnRfImqNCevoJN5nmos6M2Y409QbYowNJMY7R85iURonk0UQl4+jbqIwOAVzGQ4xigrSZYMw8XNd6KNEz86cQwhLRB21ONMddKkExE1K+KUii2+iwQTI4OwmtMV+15/yvKvQg3iEBKbQyQKzIQE4iaCCNnabKIYMzBo/HfcIf5tEeh5GLF+HqVG7TNGreu3NTbGmgFEMkc6x01+EkW0gJ/GyMqeZ7wOiRCjARf1qnmehPZzFZzouQTOAdAGsVqL2h+u1atovdfITBWiB+7umvmnWfpUnKEeVRjxYiUw3QBq3jsakDJ3Ofqg1cu8yA0Qbo2WwUYGtCEzO7aJLtem6LBe3cBpp9pruYdzLSRFcu4AZM=
+  app: neil188-expensify
+  on:
+    repo: Neil188/expensify
