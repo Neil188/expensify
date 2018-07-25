@@ -4,6 +4,7 @@ import {
     startAddExpense,
     addExpense,
     editExpense,
+    startEditExpense,
     removeExpense,
     startRemoveExpense,
     setExpenses,
@@ -58,6 +59,48 @@ test('Should setup edit expense action object', () => {
         id: '123abc',
         updates: { note: 'New note value' },
     });
+});
+
+
+test('should update expense in database and store', (done) => {
+    // create test store
+    const store = createMockStore({});
+    const { id } = expenses[2];
+    const updates = {
+        amount: 666,
+        description: 'Updated',
+    }
+    const start = {
+        amount: expenses[2].amount,
+        createdAt: expenses[2].createdAt,
+        description: expenses[2].description,
+        note: expenses[2].note,
+    }
+
+    // dispatch startEditExpense action
+    store.dispatch(startEditExpense(id, updates))
+        .then(
+            () => {
+            // check EDIT_EXPENSE action was triggered in the test store
+                const actions = store.getActions();
+                expect(actions[0]).toEqual({
+                    type: 'EDIT_EXPENSE',
+                    id,
+                    updates,
+                })
+
+                // read database to get expense we just updated
+                return database.ref(`expenses/${id}`)
+                    .once('value');
+            })
+        // check database has been updated with correct values
+        .then( snapshot => {
+            expect(snapshot.val()).toEqual({
+                ...start,
+                ...updates,
+            });
+            done();
+        });
 });
 
 test('Should setup add expense action object with provided values', () => {
