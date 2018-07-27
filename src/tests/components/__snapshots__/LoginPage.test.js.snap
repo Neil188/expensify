@@ -3,7 +3,7 @@
 exports[`should render Login page correctly 1`] = `
 <div>
   <button
-    onClick={[MockFunction]}
+    onClick={[Function]}
   >
     Login
   </button>
