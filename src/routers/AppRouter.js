@@ -4,7 +4,6 @@ import createHistory from 'history/createBrowserHistory';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 import ConAddExpensePage from '../components/AddExpensePage';
 import ConEditExpensePage from '../components/EditExpensePage';
-import HelpPage from '../components/HelpPage';
 import NotFoundPage from '../components/NotFoundPage';
 import ConLoginPage from '../components/LoginPage';
 import ConPrivateRoute from './PrivateRoute';
@@ -20,7 +19,6 @@ const AppRouter = () => (
                 <ConPrivateRoute path='/dashboard' component={ExpenseDashboardPage} />
                 <ConPrivateRoute path='/create' component={ConAddExpensePage} />
                 <ConPrivateRoute path='/edit/:id' component={ConEditExpensePage} />
-                <Route path='/help' component={HelpPage} />
                 <Route component={NotFoundPage} />
             </Switch>
         </div>
