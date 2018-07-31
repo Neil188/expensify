@@ -5,7 +5,6 @@ before_install:
   - npm i -g npm@6.2
 install:
 - npm ci
-# keep the npm cache around to speed up installs
 cache:
   directories:
   - "$HOME/.npm"
