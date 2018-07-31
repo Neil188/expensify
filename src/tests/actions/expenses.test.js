@@ -11,7 +11,7 @@ import {
     startSetExpenses,
 } from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
-import database from '../../firebase/firebase';
+import database from '../../firebase';
 
 const createMockStore = configureMockStore([thunk]);
 

@@ -8,7 +8,7 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
-import { firebase } from  './firebase/firebase';
+import { firebase } from  './firebase';
 
 const store = configureStore();
 

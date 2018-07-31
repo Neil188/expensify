@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import createHistory from 'history/createBrowserHistory';
 import ExpenseDashboardPage from '../components/ExpenseDashboardPage';
 import ConAddExpensePage from '../components/AddExpensePage';
@@ -15,11 +15,26 @@ const AppRouter = () => (
     <Router history={history} >
         <div>
             <Switch>
-                <ConPublicRoute exact path='/' component={ConLoginPage} />
-                <ConPrivateRoute path='/dashboard' component={ExpenseDashboardPage} />
-                <ConPrivateRoute path='/create' component={ConAddExpensePage} />
-                <ConPrivateRoute path='/edit/:id' component={ConEditExpensePage} />
-                <Route component={NotFoundPage} />
+                <ConPublicRoute
+                    exact
+                    path='/'
+                    component={ConLoginPage}
+                />
+                <ConPrivateRoute
+                    path='/dashboard'
+                    component={ExpenseDashboardPage}
+                />
+                <ConPrivateRoute
+                    path='/create'
+                    component={ConAddExpensePage}
+                />
+                <ConPrivateRoute
+                    path='/edit/:id'
+                    component={ConEditExpensePage}
+                />
+                <Route
+                    component={NotFoundPage}
+                />
             </Switch>
         </div>
     </Router>
