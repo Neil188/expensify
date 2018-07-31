@@ -7,9 +7,11 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
+    "lint": "eslint src",
     "preserve": "npm run build:prod",
     "serve": "live-server public/",
     "start": "node ./server/server.js",
+    "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "heroku-postbuild": "npm run build:prod",
     "push-heroku": "git push heroku master"
@@ -82,7 +84,8 @@
     "npm": "6.1.x"
   },
   "eslintIgnore": [
-    "public/dist/*"
+    "public/dist/*",
+    "src/playground/*"
   ],
   "repository": {
     "type": "git",
