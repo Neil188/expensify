@@ -5,12 +5,12 @@ import { DateRangePicker } from 'react-dates';
 import { ExpenseListFilters } from '../../components/ExpenseListFilters';
 import { filters, altFilters } from '../fixtures/filters';
 
-let setTextFilter;
-let sortByAmount;
-let sortByDate;
-let setStartDate;
-let setEndDate;
-let wrapper;
+let setTextFilter,
+    sortByAmount,
+    sortByDate,
+    setStartDate,
+    setEndDate,
+    wrapper;
 
 beforeEach( () => {
     setTextFilter = jest.fn();

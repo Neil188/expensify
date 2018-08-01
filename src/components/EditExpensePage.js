@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
+import ExpenseForm from './ExpenseForm';
 
 export class EditExpensePage extends Component {
     onSubmit = (expense) => {
         this.props.editExpense(this.props.expense.id, expense);
         this.props.history.push('/');
     }
-    onClick = (expense) => {
+    onClick = () => {
         this.props.removeExpense( { id: this.props.expense.id } );
         this.props.history.push('/');
     }

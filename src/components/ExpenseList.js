@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ExpenseListItem from './ExpenseListItem';
 import selectExpenses from '../selectors/expenses';
+import ExpenseListItem from './ExpenseListItem';
 
 export const ExpenseList = ({ expenses }) => (
     <div>
