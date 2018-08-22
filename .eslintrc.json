@@ -4,6 +4,11 @@
         "@neil188/eslint-config",
         "@neil188/eslint-config/react",
         "@neil188/eslint-config/jest"
-    ]
+    ],
+    "settings": {
+        "react": {
+            "version": "16.4"
+        }
+    }
 
 }
