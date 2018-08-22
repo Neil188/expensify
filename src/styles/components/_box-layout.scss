@@ -1,6 +1,6 @@
 .box-layout {
     align-items: center;
-    background: url('/images/bg.jpg');
+    background: url("/images/bg.jpg");
     background-size: cover;
     display: flex;
     height: 100vh;
@@ -17,6 +17,6 @@
 }
 
 .box-layout__title {
+    line-height: 1.6rem;
     margin: 0 0 $m-size 0;
-    line-height: 1;
 }

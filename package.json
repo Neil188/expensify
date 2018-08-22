@@ -1,97 +1,97 @@
 {
-  "name": "expensify",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build:dev": "webpack",
-    "build:prod": "webpack -p --env production",
-    "dev-server": "webpack-dev-server",
-    "lint": "eslint src",
-    "preserve": "npm run build:prod",
-    "serve": "live-server public/",
-    "start": "node ./server/server.js",
-    "pretest": "npm run lint",
-    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
-    "heroku-postbuild": "npm run build:prod",
-    "push-heroku": "git push heroku master"
-  },
-  "author": "N Lupton",
-  "license": "ISC",
-  "devDependencies": {
-    "@neil188/eslint-config": "^1.0.0",
-    "cross-env": "^5.2.0",
-    "dotenv": "^6.0.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.4",
-    "eslint": "^5.2.0",
-    "jest": "^22.4.4",
-    "live-server": "^1.2.0",
-    "prettier": "^1.14.0",
-    "redux-mock-store": "^1.5.3",
-    "request": "^2.87.0",
-    "stylelint": "^9.4.0",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^0.8.1",
-    "webpack-dev-server": "^2.11.2"
-  },
-  "dependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.6",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-react": "^1.0.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-imports": "^1.5.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.14",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "css-loader": "^0.28.11",
-    "express": "^4.16.3",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "firebase": "^5.3.0",
-    "history": "^4.7.2",
-    "moment": "^2.22.2",
-    "moment-locales-webpack-plugin": "^1.0.7",
-    "node-sass": "^4.9.2",
-    "normalize.css": "^8.0.0",
-    "numeral": "^2.0.6",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dates": "^16.7.0",
-    "react-dom": "^16.4.1",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.3.0",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.21.0",
-    "uuid": "^3.3.2",
-    "webpack": "^3.12.0"
-  },
-  "engines": {
-    "node": "8.11.x",
-    "npm": "6.1.x"
-  },
-  "eslintIgnore": [
-    "public/dist/*",
-    "src/playground/*"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Neil188/expensify.git"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "plugins": [
-      "stylelint-order"
+    "name": "expensify",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build:dev": "webpack",
+        "build:prod": "webpack -p --env production",
+        "dev-server": "webpack-dev-server",
+        "eslint": "eslint src",
+        "lint": "npm run eslint && npm run stylelint",
+        "preserve": "npm run build:prod",
+        "serve": "live-server public/",
+        "start": "node ./server/server.js",
+        "pretest": "npm run lint",
+        "stylelint": "stylelint src/styles",
+        "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
+        "heroku-postbuild": "npm run build:prod",
+        "push-heroku": "git push heroku master"
+    },
+    "author": "N Lupton",
+    "license": "ISC",
+    "devDependencies": {
+        "@neil188/eslint-config": "^1.0.0",
+        "@neil188/stylelint-config": "^1.2.0",
+        "cross-env": "^5.2.0",
+        "dotenv": "^6.0.0",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "enzyme-to-json": "^3.3.4",
+        "eslint": "^5.2.0",
+        "jest": "^22.4.4",
+        "live-server": "^1.2.0",
+        "prettier": "^1.14.0",
+        "redux-mock-store": "^1.5.3",
+        "request": "^2.87.0",
+        "stylelint": "^9.4.0",
+        "stylelint-config-standard": "^18.2.0",
+        "stylelint-order": "^0.8.1",
+        "webpack-dev-server": "^2.11.2"
+    },
+    "dependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-eslint": "^8.2.6",
+        "babel-loader": "^7.1.5",
+        "babel-plugin-react": "^1.0.0",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-plugin-transform-imports": "^1.5.0",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-plugin-transform-react-remove-prop-types": "^0.4.14",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "css-loader": "^0.28.11",
+        "express": "^4.16.3",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "firebase": "^5.3.0",
+        "history": "^4.7.2",
+        "moment": "^2.22.2",
+        "moment-locales-webpack-plugin": "^1.0.7",
+        "node-sass": "^4.9.2",
+        "normalize.css": "^8.0.0",
+        "numeral": "^2.0.6",
+        "prop-types": "^15.6.2",
+        "react": "^16.4.1",
+        "react-dates": "^16.7.0",
+        "react-dom": "^16.4.1",
+        "react-redux": "^5.0.7",
+        "react-router-dom": "^4.3.1",
+        "redux": "^3.7.2",
+        "redux-thunk": "^2.3.0",
+        "sass-loader": "^6.0.7",
+        "style-loader": "^0.21.0",
+        "uuid": "^3.3.2",
+        "webpack": "^3.12.0"
+    },
+    "engines": {
+        "node": "8.11.x",
+        "npm": "6.1.x"
+    },
+    "eslintIgnore": [
+        "public/dist/*",
+        "src/playground/*"
     ],
-    "rules": {
-      "order/properties-alphabetical-order": true,
-      "indentation": 4,
-      "no-missing-end-of-source-newline": null
-    }
-  }
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Neil188/expensify.git"
+    },
+    "stylelint": {
+        "extends": "@neil188/stylelint-config"
+    },
+    "browserslist": [
+        "extends @neil188/browserslist-config",
+        "not op_mini all",
+        "not ie_mob 11"
+    ]
 }
