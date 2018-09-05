@@ -31,31 +31,39 @@ export class ExpenseListFilters extends Component {
         const { filters } = this.props;
 
         return (
-            <div>
-                <input
-                    type="text"
-                    value={filters.text}
-                    onChange={this.handleTextChange}
-                />
-                <select
-                    value={filters.sortBy}
-                    onChange={this.handleSortChange}
-                >
-                    <option value='date'>Date</option>
-                    <option value='amount'>Amount</option>
-                </select>
-                <DateRangePicker
-                    startDate={ filters.startDate }
-                    startDateId='filterStartDate'
-                    endDate={ filters.endDate }
-                    endDateId='filterEndDate'
-                    onDatesChange={ this.handleDatesChange }
-                    focusedInput={ this.state.calendarFocused }
-                    onFocusChange={ this.handleFocusChange }
-                    numberOfMonths={ 1 }
-                    isOutsideRange={ () => false }
-                    showClearDates
-                />
+            <div className='content-container'>
+                <div className='input-group'>
+                    <div className='input-group__item'>
+                        <input
+                            type='text'
+                            value={filters.text}
+                            onChange={this.handleTextChange}
+                        />
+                    </div>
+                    <div className='input-group__item'>
+                        <select
+                            value={filters.sortBy}
+                            onChange={this.handleSortChange}
+                        >
+                            <option value='date'>Date</option>
+                            <option value='amount'>Amount</option>
+                        </select>
+                    </div>
+                    <div className='input-group__item'>
+                        <DateRangePicker
+                            startDate={ filters.startDate }
+                            startDateId='filterStartDate'
+                            endDate={ filters.endDate }
+                            endDateId='filterEndDate'
+                            onDatesChange={ this.handleDatesChange }
+                            focusedInput={ this.state.calendarFocused }
+                            onFocusChange={ this.handleFocusChange }
+                            numberOfMonths={ 1 }
+                            isOutsideRange={ () => false }
+                            showClearDates
+                        />
+                    </div>
+                </div>
             </div>
         );
     }
