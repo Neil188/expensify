@@ -21,6 +21,7 @@
     "author": "N Lupton",
     "license": "ISC",
     "devDependencies": {
+        "@neil188/browserslist-config": "^2.0.0",
         "@neil188/eslint-config": "^1.1.2",
         "@neil188/stylelint-config": "^1.2.0",
         "cross-env": "^5.2.0",
@@ -90,8 +91,6 @@
         "extends": "@neil188/stylelint-config"
     },
     "browserslist": [
-        "extends @neil188/browserslist-config",
-        "not op_mini all",
-        "not ie_mob 11"
+        "extends @neil188/browserslist-config"
     ]
 }
