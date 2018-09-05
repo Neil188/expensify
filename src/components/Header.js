@@ -17,6 +17,7 @@ export const Header = ({ startLogOutProcess }) => (
                     <h1>Expensify</h1>
                 </Link>
                 <button
+                    className='button button--link'
                     onClick={startLogOutProcess}
                 >
                     Logout
