@@ -73,12 +73,14 @@ export default class ExpenseForm extends Component {
                 {error && <p>{error}</p>}
                 <form onSubmit={this.handleSubmit} >
                     <input
+                        className='text-input'
                         onChange={this.handleDescriptionChange}
                         placeholder='Description'
                         type='text'
                         value={description}
                     />
                     <input
+                        className='text-input'
                         onChange={this.handleAmountChange}
                         placeholder='Amount'
                         type='text'
@@ -93,6 +95,7 @@ export default class ExpenseForm extends Component {
                         isOutsideRange={ () => false}
                     />
                     <textarea
+                        className='text-area'
                         onChange={this.handleNoteChange}
                         placeholder='Add a note for your expense (optional)'
                         value={note}

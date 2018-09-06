@@ -35,13 +35,16 @@ export class ExpenseListFilters extends Component {
                 <div className='input-group'>
                     <div className='input-group__item'>
                         <input
+                            className='text-input'
                             type='text'
                             value={filters.text}
                             onChange={this.handleTextChange}
+                            placeholder='Search expenses'
                         />
                     </div>
                     <div className='input-group__item'>
                         <select
+                            className='select'
                             value={filters.sortBy}
                             onChange={this.handleSortChange}
                         >

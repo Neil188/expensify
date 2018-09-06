@@ -38,6 +38,7 @@
         "stylelint": "^9.5.0",
         "stylelint-config-standard": "^18.2.0",
         "stylelint-order": "^1.0.0",
+        "stylelint-scss": "^3.3.0",
         "webpack-dev-server": "^2.11.3"
     },
     "dependencies": {
@@ -88,7 +89,22 @@
         "url": "https://github.com/Neil188/expensify.git"
     },
     "stylelint": {
-        "extends": "@neil188/stylelint-config"
+        "extends": "@neil188/stylelint-config",
+        "plugins": [
+            "stylelint-scss"
+        ],
+        "rules": {
+            "at-rule-no-unknown": null,
+            "scss/at-rule-no-unknown": true,
+            "at-rule-empty-line-before": ["always", {
+                "except": [
+                    "blockless-after-same-name-blockless",
+                    "first-nested",
+                    "inside-block"
+                ],
+                "ignore": ["after-comment"]
+            }]
+        }
     },
     "browserslist": [
         "extends @neil188/browserslist-config"

@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html {
     // resize base font size to 10px (16px * 62.5), allows easy calculation of rem values.
     font-size: 62.5%;
