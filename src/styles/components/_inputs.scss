@@ -7,8 +7,9 @@
 }
 
 .text-area {
-    height: 10rem;
     @extend .text-input;
+
+    height: 10rem;
 }
 
 .select {
