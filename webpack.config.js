@@ -1,5 +1,5 @@
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
 const dotenv = require('dotenv');
 const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -21,7 +21,10 @@ module.exports = (env) => {
     const CSSExtract = new ExtractTextPlugin('styles.css');
 
     return {
-        entry: './src/app.js',
+        entry: [
+            'babel-polyfill',
+            './src/app.js'
+        ],
         output: {
             path: path.join(__dirname, 'public', 'dist'),
             filename: 'bundle.js',
